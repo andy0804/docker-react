@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t ananthkumbla/docker-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true ananthkumbla/docker-react npm run test
